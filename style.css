@@ -1,0 +1,186 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+body {
+    font-family: sans-serif;
+}
+.control-buttons {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 22;
+    background-color: rgb(3 155 229 / 75%);
+}
+.control-buttons div {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.control-buttons span {
+    background-color: #d65f5f;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 40px;
+    text-align: center;
+}
+.control-buttons input,
+#levels {
+    width: 250px;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+    caret-color: #d65f5f;
+    font-size: 30px;
+    padding: 0 10px;
+    text-transform: capitalize;
+    color: #d65f5f;
+    text-align: center;
+}
+.control-buttons label {
+    color: #000;
+    font-size: 25px;
+    font-weight: bold;
+}
+.control-buttons input:focus,
+#levels:focus {
+    outline: none;
+}
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 580px;
+    margin: 40px auto;
+    border: 2px solid #61e2f3;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.memory-game-blocks {
+    display: flex;
+    flex-wrap: wrap;
+    width: 540px;
+    gap: 20px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+}
+.game-block {
+    width: 120px;
+    height: 100px;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+.game-block .face {
+    backface-visibility: hidden;
+}
+.game-block .front {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #d65f5f;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.game-block .front::before {
+    content: "?";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+    color: white;
+    font-weight: bold;
+}
+.game-block .back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    transform: rotateY(180deg);
+}
+.game-block .back img {
+    width: 100px;
+    height: 100px;
+}
+.game-block .front:hover {
+    background-color: #c44040;
+}
+.game-block.show,
+.game-block.correct {
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+.memory-game-blocks.stop-click {
+    pointer-events: none;
+}
+.try-again{
+    background-color: rgb(14 15 85 / 75%);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+.try-again-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d65f5f;
+    font-size: 30px;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20%;
+    font-size: 100px;
+    font-weight: bold;
+    background: -webkit-linear-gradient(#b900ffde, #fce19f, #f5007f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.quit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 171.78px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 55%;
+    color: white;
+    background-color: red;
+    font-size: 30px;
+    padding: 10px 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
